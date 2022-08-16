@@ -1,12 +1,12 @@
 # iCloud_h265_script
-Python script to convert iCloud videos to h265 codec in order to save space in iCloud photos storage
+Python script to compress iCloud videos to h265 (HVEC) codec in order to save space in iCloud photos storage.
 
-iCloud videos recorded with iPhones take up a lot of space in the cloud storage. I've found that the best way to reduce the size of the videos is to convert them to h265 codec and upload them to iCloud later on. However, Apple is a bit finnicky with how they manage video and metadata.
+iCloud videos recorded with iPhones take up a lot of space in the cloud storage. I've found that the best way to reduce the size of the videos is to convert them to h265 codec and upload them to iCloud later on. However, Apple is a bit finnicky with how they manage video and metadata, and some extra work is required to not lose any important information.
 
 To compress your video library, I would recommend using the following steps, as I found they are the most efficient:
 
 1. Enter the iCloud Photos webapp, in iCloud.com
-2. Select the video library
+2. Select the video library.
 3. Download videos in batches no larger than 100 videos. If you download a batch larger than 100 videos, the download is likely to fail.
 4. Place all videos in a folder. Extensions should be .mov or .mp4
 5. Run the script, setting the input folder to the folder containing the videos and the output folder to the folder you want to store the h265 videos. If you do not set a output folder, the script will create a new folder in the same location as the input folder.
@@ -18,8 +18,6 @@ exiftool *.mp4 | grep 'Media\ Create\ Date\|File\ Name' | grep 'File\ Name\| 000
 7. Upload the h265 videos to your iCloud *drive* storage, preferably in a batches and in different folders.
 8. Now in your phone, download the h265 videos in the iCloud Drive app and import them to the gallery via the share menu.
 9. In your gallery app you will have the original video next to the h265 one, the only difference between them is the location metadata. To solve this, you can long press the location of the original file to copy it, and then long press on the location of the h265 video and paste it. Then, you can safely delete the original video. Repeat this for all videos in the library. (This could take a while, but the cloud space saving is worth it.)
-
-
 
 ### Warnings
 Currently, some videos cannot be converted as ffmpeg throws an error.
